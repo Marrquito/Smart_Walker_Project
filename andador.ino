@@ -9,7 +9,8 @@ float calculaCelsius(){ // func para calcular °C
   	int tmp;
     float voltage, milliVolt, celsius;
 	
-  	tmp = analogRead(A0); // conversões retirdas da documentação do sensor
+	// serie de conversoes retiradas da documentacao do sensor
+  	tmp = analogRead(A0); // tmp recebe o valor lido da porta analogica A0
     voltage = (tmp * 5.0) / 1024;
     milliVolt = voltage * 1000;
     celsius = (milliVolt - 500 ) / 10; 
@@ -26,38 +27,34 @@ void setup(){
     pinMode(A0, INPUT); // sensor de temperatura
     pinMode(27, OUTPUT); // porta do sensor de temperatura
     Serial.begin(9600);
-
 }
 
 void loop(){
-
   	int i;
   	float celsius;
-  	celsius = calculaCelsius();
-    
+  	
+	celsius = calculaCelsius();
     
   	//int button, lastButton; // variaveis p/ controle do botao
   	
   	//lastButton = button = 0; // os dois iniciam com 0 p/ OFF
   
  	if(celsius >= 35.5){ // veio botou a mao = ligou
-      	  LCD.print("Celsius: ");
-          LCD.print(calculaCelsius());
-          delay(700);
-          LCD.clear();
-  	      delay(700);
-		  calculaCelsius();	
+		LCD.print("Celsius: ");
+		LCD.print(calculaCelsius());
+		delay(700);
+		LCD.clear();
+		delay(700);
+		calculaCelsius();	
     }else{ // tirou a mao = desligado ( precisa enviar msg )
       	for(i = 5; i >= 0; i--){
-          	if(celsius >= 35.5) break;
-      		LCD.print(calculaCelsius());
-          	delay(500);
-          	LCD.clear();
-          	delay(500);
-            celsius = calculaCelsius();
+			if(celsius >= 35.5) break;
+			LCD.print(calculaCelsius());
+			delay(500);
+			LCD.clear();
+			delay(500);
+			celsius = calculaCelsius();
         }
-      // envia mensagem pro ctt de emergencia
+      // envia mensagem pro ctt de emergencia aqui
     }
-	
-  
 }
