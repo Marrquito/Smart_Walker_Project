@@ -13,7 +13,7 @@ O projeto tem por finalidade fazer um andador inteligente utilizando Arduíno pa
 - Botão
 - Bateria 9V
 
-## Colaboradores
+## Colaboradores:
 - Ana Luisa
 - [Carlos Eduardo](https://github.com/carloseduardocsf)
 - Déborah Sallen
