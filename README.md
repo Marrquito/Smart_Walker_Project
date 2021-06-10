@@ -8,8 +8,9 @@ O projeto tem por finalidade fazer um andador inteligente utilizando Arduíno pa
 - Sensor de temperatura[TMP36]
 - Piezo
 - Potenciômetro
+- 1 Led
 - 1 Resistor de 1KΩ
-- 1 Resistor de 220Ω
+- 2 Resistores de 220Ω
 - Botão
 - Bateria 9V
 
