@@ -1,5 +1,5 @@
 # Smart_Walker_Project
-O projeto tem por finalidade fazer um andador inteligente utilizando Arduíno para auxiliar famílias de idosos. 
+O projeto tem por finalidade fazer um andador inteligente utilizando o Arduíno para auxiliar famílias de idosos. 
 
 ## Materiais Utilizados:
 - Arduino Uno R3
