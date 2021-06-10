@@ -2,8 +2,10 @@
 
 LiquidCrystal LCD(12,11,5,4,3,2); // iniciando a lib do LCD
 
-int sensorPino = 1; // pino analogico A1
-int pinoButton = 13;
+int button = 13;
+int buttonStart = 0;
+int buttonEnd = 0;
+int ledRed = 10;
 
 float calculaCelsius(){ // func para calcular °C
   	int tmp;
@@ -18,9 +20,28 @@ float calculaCelsius(){ // func para calcular °C
   	return celsius;
 }
 
+void VerificaCelsiusCM(){
+	LCD.print("Celsius: ");
+	LCD.print(calculaCelsius());
+	delay(700);
+	LCD.clear();
+	delay(700);
+}
+
+/* void VerificaCelsiusSM(float *celsius){
+	LCD.print(calculaCelsius());
+	delay(500);
+	LCD.clear();
+	delay(500);
+	*celsius = calculaCelsius();
+}
+ */
+
 void setup(){
-  	pinMode(pinoButton, INPUT);
-  
+  	
+	pinMode(button, INPUT);
+	pinMode(ledRed, OUTPUT);
+
   	LCD.begin(18, 4); // inicia os pixels da telinha
   	LCD.setCursor(0, 1); // onde a telinha inicia
   
@@ -30,31 +51,49 @@ void setup(){
 }
 
 void loop(){
-  	int i;
+  	int i, press = 1, press2 = 1;
   	float celsius;
   	
+	buttonStart = digitalRead(button);
 	celsius = calculaCelsius();
     
-  	//int button, lastButton; // variaveis p/ controle do botao
-  	
-  	//lastButton = button = 0; // os dois iniciam com 0 p/ OFF
-  
- 	if(celsius >= 35.5){ // veio botou a mao = ligou
-		LCD.print("Celsius: ");
-		LCD.print(calculaCelsius());
-		delay(700);
-		LCD.clear();
-		delay(700);
-		calculaCelsius();	
-    }else{ // tirou a mao = desligado ( precisa enviar msg )
-      	for(i = 5; i >= 0; i--){
-			if(celsius >= 35.5) break;
-			LCD.print(calculaCelsius());
-			delay(500);
-			LCD.clear();
-			delay(500);
+	if(celsius >= 35.5){
+		while(1){
+			press = 1;
+			if(celsius >= 35.5 && press == 1){ // veio botou a mao = ligou
+				celsius = calculaCelsius();
+				VerificaCelsiusCM();
+				press2 = 1;
+			}else if(celsius < 35.5){ // tirou a mao = desligado ( precisa enviar msg )
+				LCD.print("stand-by...");
+				delay(1000);
+				LCD.clear();
+				while(press2){
+					for(i = 60; i >= 0; i--){
+						if(celsius >= 35.5) break;
+						buttonStart = digitalRead(button);
+						if(buttonStart == HIGH){
+							delay(1000);
+							LCD.print("Desligando...");
+							delay(1000);
+							press2 = 0;
+							break;
+						}else{
+							celsius = calculaCelsius();
+							//VerificaCelsiusSM(&celsius);
+							LCD.print("DESATIVE...");
+							delay(1000);
+						}
+						digitalWrite(ledRed, HIGH);
+						delay(1000);
+						digitalWrite(ledRed, LOW);
+						
+					}
+				}
+			// envia mensagem pro ctt de emergencia aqui
+				celsius = calculaCelsius();
+			}
 			celsius = calculaCelsius();
-        }
-      // envia mensagem pro ctt de emergencia aqui
-    }
+		}
+	}
 }
