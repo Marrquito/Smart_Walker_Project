@@ -19,4 +19,4 @@ O projeto tem por finalidade fazer um andador inteligente utilizando o Arduíno 
 - [Carlos Eduardo](https://github.com/carloseduardocsf)
 - Déborah Sallen
 - [Marco Antonio](https://github.com/Marrquito)
-- [Nelly Stanford](https://github.com/nellystanford)
+- [Nelly Stanford](https://github.com/nellystfm)
