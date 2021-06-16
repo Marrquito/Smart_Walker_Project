@@ -12,10 +12,9 @@ O projeto tem por finalidade fazer um andador inteligente utilizando o Arduíno 
 - 1 Resistor de 1KΩ
 - 2 Resistores de 220Ω
 - Botão
-- Bateria 9V
 
 ## Colaboradores:
-- Ana Luisa
+- [Ana Luisa](https://github.com/analuisamp)
 - [Carlos Eduardo](https://github.com/carloseduardocsf)
 - Déborah Sallen
 - [Marco Antonio](https://github.com/Marrquito)
