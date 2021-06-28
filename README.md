@@ -9,6 +9,7 @@ O projeto tem por finalidade fazer um andador inteligente utilizando o Arduíno 
    | Arduíno Uno | R$ 50.00 |
    | Placa de ensaio | R$ 13.90 |
    | Tela LCD 16x2 | R$ 18.90 |
+   | Potenciômetro | R$ 1.50 |
    | Sensor de temperatura | R$ 14,84 |
    | Módulo sensor infravermelho | R$11,90 |
    | LED | R$0,24 |
@@ -16,9 +17,10 @@ O projeto tem por finalidade fazer um andador inteligente utilizando o Arduíno 
    | Controle remoto infravermelho | R$ 8,46 |
    | Módulo GSM | R$ 32,21 |
    | 25 jumpers | R$ 10.00 | 
+   | Bateria 9V | R$ 28.90 |
    | Andador para idosos | R$ 150.00 |
-   | Valor total | R$310.57 |
-   
+   | Valor total | R$340.97 |
+
    
 
 ## Colaboradores:
